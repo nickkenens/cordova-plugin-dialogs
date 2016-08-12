@@ -285,7 +285,7 @@ public class Notification extends CordovaPlugin {
        
         Runnable runnable = new Runnable() {
             public void run() {
-                final EditText promptInput =  new EditText(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_DARK);
+                final EditText promptInput =  new EditText(cordova.getActivity());
                 promptInput.setHint(defaultText);
                 AlertDialog.Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
@@ -476,7 +476,7 @@ public class Notification extends CordovaPlugin {
     private AlertDialog.Builder createDialog(CordovaInterface cordova) {
         int currentapiVersion = android.os.Build.VERSION.SDK_INT;
         if (currentapiVersion >= android.os.Build.VERSION_CODES.HONEYCOMB) {
-            return new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
+            return new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_DARK);
         } else {
             return new AlertDialog.Builder(cordova.getActivity());
         }
